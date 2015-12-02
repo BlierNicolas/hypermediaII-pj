@@ -29,8 +29,8 @@ public class ControleurFrontal extends HttpServlet {
                 RequestDispatcher r = this.getServletContext().getRequestDispatcher("/logout");
                 r.forward(request, response);                
             }            
-            if("evaluer".equals(action)) {                
-                RequestDispatcher r = this.getServletContext().getRequestDispatcher("/evaluer");
+            if("evaluerLivre".equals(action)) {                
+                RequestDispatcher r = this.getServletContext().getRequestDispatcher("/evaluerLivre");
                 r.forward(request, response);
             }
             if ("consulter".equals(action)) {
