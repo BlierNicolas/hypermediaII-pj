@@ -57,7 +57,7 @@ public class userDAO extends Dao<user> {
             stm.setString(1, username);
             ResultSet r = stm.executeQuery();
             if (r.next()) {
-                user unUser = new user(r.getString("username"), r.getString("nomPrenom"), r.getString("password"));
+                user unUser = new user(r.getString("username"), r.getString("nom_prenom"), r.getString("password"));
                 r.close();
                 stm.close();
                 return unUser;

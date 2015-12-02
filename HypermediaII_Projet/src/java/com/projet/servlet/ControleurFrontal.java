@@ -19,12 +19,14 @@ public class ControleurFrontal extends HttpServlet {
                 out.println("Vous êtes dans l'action « accueil »...");
             }
             if ("login".equals(action)) {
-                RequestDispatcher r = this.getServletContext().getRequestDispatcher("/signin");
+                
+                RequestDispatcher r = this.getServletContext().getRequestDispatcher("/login");
                 r.forward(request, response);     
+                //out.println("Vous êtes dans l'action login");
                 return;
             }            
             if ("logout".equals(action)) {
-                RequestDispatcher r = this.getServletContext().getRequestDispatcher("/signout");
+                RequestDispatcher r = this.getServletContext().getRequestDispatcher("/logout");
                 r.forward(request, response);                
             }            
             if("evaluer".equals(action)) {                

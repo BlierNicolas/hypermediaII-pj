@@ -6,10 +6,10 @@
         </div>               
     </div>
     <div>
-        <a href="">Se déconnecter</a>
+        <a href="controleurFrontal?action=logout">Se déconnecter</a>
     </div>
     <div>
-        <a href="">Evaluer un livre</a>
-        <a href="">Consulter ces evaluations</a>
+        <a href="controleurFrontal?action=evaluer">Evaluer un livre</a>
+        <a href="controleurFrontal?action=consulter">Consulter ces evaluations</a>
     </div>
 </div>

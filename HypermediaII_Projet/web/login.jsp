@@ -9,7 +9,7 @@
 %>  
 <div>
     <!-- LOGIN -->
-    <form action="controleurFrontal?action=login" method="post" id="login">
+    <form action="controleurFrontal?action=login" method="post">
         <h2>Connectez-vous</h2>
         <label>Username</label>
         <input type="text" id="inputEmail" name="username" value="<%=username%>" placeholder="Username" required autofocus>
