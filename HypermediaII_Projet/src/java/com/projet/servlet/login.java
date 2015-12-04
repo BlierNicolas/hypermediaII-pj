@@ -21,26 +21,13 @@ public class login extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             String u = request.getParameter("username");
-            String p = request.getParameter("password");  
-//            if (u == null || u.trim().equalsIgnoreCase("")) {
-//                request.setAttribute("message-warning", "Username obligatoire");
-//                RequestDispatcher r = this.getServletContext().getRequestDispatcher("/index.jsp?thePage=login");
-//                r.forward(request, response);
-//                return;
-//            }
-//            if( p == null || p.trim().equals("") ) {
-//                request.setAttribute("message-warning", "Mot de passe obligatoire");
-//                RequestDispatcher r = this.getServletContext().getRequestDispatcher("/index.jsp?thePage=login");
-//                r.forward(request, response);
-//                return;
-//            }
+            String p = request.getParameter("password");
             try {
                 Class.forName( request.getServletContext().getInitParameter("jdbcDriver"));
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
             }
-
-            //Connexion.setUrl(this.getServletContext().getInitParameter("urlBd"));
+            
             Connexion.setUrl(request.getServletContext().getInitParameter("databaseURL"));
             userDAO unUserDAO = new userDAO(Connexion.getInstance());
             if( unUserDAO == null )

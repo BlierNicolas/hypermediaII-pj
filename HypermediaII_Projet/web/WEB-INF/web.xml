@@ -39,12 +39,20 @@
         <servlet-class>com.projet.servlet.afficherLivre</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>evaluerLivreCours</servlet-name>
-        <servlet-class>com.projet.servlet.evaluerLivreCours</servlet-class>
+        <servlet-name>confirmationEvaluationLivre</servlet-name>
+        <servlet-class>com.projet.servlet.confirmationEvaluationLivre</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>consulterListeCours</servlet-name>
         <servlet-class>com.projet.servlet.consulterListeCours</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>rechercherCours</servlet-name>
+        <servlet-class>com.projet.servlet.rechercherCours</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>rechercherLivre</servlet-name>
+        <servlet-class>com.projet.servlet.rechercherLivre</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>controleur</servlet-name>
@@ -75,12 +83,20 @@
         <url-pattern>/afficherListeLivres</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>evaluerLivreCours</servlet-name>
+        <servlet-name>confirmationEvaluationLivre</servlet-name>
         <url-pattern>/evaluerLivreCours</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>consulterListeCours</servlet-name>
         <url-pattern>/consulterListeCours</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>rechercherCours</servlet-name>
+        <url-pattern>/rechercherCours</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>rechercherLivre</servlet-name>
+        <url-pattern>/rechercherLivre</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -22,15 +22,18 @@
             <input type="text"><br>
             <label>Commentaire : </label><br>
             <input type="text"><br>
-            <button type="submit">Envoyer</button>
             <label>Nom du cours: </label>
             <select>
+                <option>
+                    Général
+                </option>
                 <% for (int i=0; i<listeCours.size()-1 ; i++) { %>
                     <option>
-                        <% listeCours.get(i).getNom(); %>
+                        <%= listeCours.get(i).getNom() %>
                     </option>
                 <% } %>
             </select>
+            <button type="submit">Envoyer</button>
         </form>
     </body>
 </html>
