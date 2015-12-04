@@ -16,15 +16,15 @@
     </head>
     <body>
         <a href="index.jsp">Retour</a>
-        <h1>Evaluer un livre</h1>
-        <form  action="controleurFrontal?action=evaluerLivre" method="post">
+        <h1>Evaluer livre [ <%= (String)session.getAttribute("ISBN") %> ]</h1>
+        <form  action="controleurFrontal?action=confirmationEvaluationLivre" method="post">
             <label>Note : </label>
-            <input type="text"><br>
+            <input type="text" name="note"><br>
             <label>Commentaire : </label><br>
-            <input type="text"><br>
+            <input type="text" name="commentaire"><br>
             <label>Nom du cours: </label>
-            <select>
-                <option>
+            <select name="cours">
+                <option selected="selected">
                     Général
                 </option>
                 <% for (int i=0; i<listeCours.size()-1 ; i++) { %>

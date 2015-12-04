@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 public class evaluerLivre extends HttpServlet {
 
@@ -15,6 +16,8 @@ public class evaluerLivre extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
+            HttpSession session = request.getSession(true);
+            session.setAttribute("ISBN", request.getParameter("ISBN"));
             RequestDispatcher r = this.getServletContext().getRequestDispatcher("/index.jsp?vue=evaluationLivre");
             r.forward(request, response);
         }

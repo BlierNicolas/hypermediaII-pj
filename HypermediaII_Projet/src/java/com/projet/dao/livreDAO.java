@@ -152,7 +152,7 @@ public class livreDAO extends Dao<livre> {
             Statement stm = cnx.createStatement();
             ResultSet r = stm.executeQuery("SELECT * FROM livre");
             while (r.next()) {
-                livre unLivre = new livre(r.getString("ISBN"), r.getString("Titre"), r.getString("Edition"), r.getInt("Annee"), r.getString("MotCles"), r.getString("NomAuteur"), r.getString("etat"), r.getString("Description"), r.getInt("NbPages"), r.getDouble("note"), r.getInt("nbEvaluations"));
+                livre unLivre = new livre(r.getString("ISBN"), r.getString("Titre"), r.getString("Edition"), r.getInt("Annee"), r.getString("MotsCles"), r.getString("NomAuteur"), r.getString("etat"), r.getString("Description"), r.getInt("NbPages"), r.getDouble("note"), r.getInt("nbEvaluations"));
                 liste.add(unLivre);
             }
             r.close();

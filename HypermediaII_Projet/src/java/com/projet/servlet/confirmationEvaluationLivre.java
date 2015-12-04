@@ -1,12 +1,16 @@
 package com.projet.servlet;
 
+import com.projet.dao.evaluationDAO;
+import com.projet.enties.evaluation;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 public class confirmationEvaluationLivre extends HttpServlet {
 
@@ -14,7 +18,22 @@ public class confirmationEvaluationLivre extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            
+            HttpSession session = request.getSession(true);
+            int note = Integer.parseInt(request.getParameter("note"));
+            String commentaire = request.getParameter("commentaire");
+            String cours = request.getParameter("cours");
+            if ((note < 0) || (note > 10) || (commentaire == null) || (cours == null)) {
+                //retourne au formulaire
+                RequestDispatcher r = this.getServletContext().getRequestDispatcher("/index.jsp?vue=evaluationLivre");
+                r.forward(request, response);
+            }
+            if ("Général".equals(cours)) {
+                evaluationDAO uneEvaluationDAO = new evaluationDAO(Connexion.getInstance());
+                evaluation uneEvaluation = new evaluation((String)session.getAttribute("connection"), (String)session.getAttribute("ISBN"), note, commentaire);
+                uneEvaluationDAO.create(uneEvaluation);
+                RequestDispatcher r = this.getServletContext().getRequestDispatcher("/index.jsp?vue=main");
+                r.forward(request, response);
+            }
         }
     }
 

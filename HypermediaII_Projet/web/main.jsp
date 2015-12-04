@@ -8,7 +8,7 @@
         <a href="controleurFrontal?action=logout">Se déconnecter</a>
     </div>
     <div>
-        <a href="controleurFrontal?action=evaluerLivre">Evaluer un livre</a>
+        <a href="controleurFrontal?action=evaluerLivre&ISBN=978-1-4302-2889-9">Evaluer un livre</a> <!-- Envoie temporairement vers l'ISBN du premier livre à cause du test -->
         <a href="controleurFrontal?action=consulter">Consulter ces evaluations</a>
          <jsp:include page="afficherListeLivres.jsp" />
     </div>
