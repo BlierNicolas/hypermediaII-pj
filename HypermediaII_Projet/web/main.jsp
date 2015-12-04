@@ -1,4 +1,5 @@
 <% HttpSession objetSession = request.getSession(); %>
+  <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/style.css" />
 <div>
     <div>
                     

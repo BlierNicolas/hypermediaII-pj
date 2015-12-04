@@ -13,7 +13,7 @@
         <TITLE>Liste de Livres </TITLE>
     </HEAD>
     <BODY>
-        <H1>Livres </H1>
+        <H1>Liste de Livres </H1>
         <TABLE>
             <TR>
                 <TH>ISBN</TH>
@@ -25,8 +25,21 @@
                 <% for (int i=0; i<listeLivre.size(); i++) { %>
                 <TR>
                     <TD>
-                        <%= listeLivre.get(i).getISBN() %>
+                        <%= listeLivre.get(i).getISBN()%>
                     </TD>
+                    <TD>
+                        <%= listeLivre.get(i).getTitre()%>
+                    </TD>
+                    <TD>
+                        <%= listeLivre.get(i).getNbEvaluations()%>
+                    </TD>
+                    <TD>
+                        <%= listeLivre.get(i).getNote()%> 
+                    </TD>
+                    <TD>
+                        Evaluer 
+                    </TD>
+                  
                 </TR>
                 <% } %>
         </TABLE>
