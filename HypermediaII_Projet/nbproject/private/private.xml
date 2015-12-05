@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/defsv/Documents/GitHub/hypermediaII-pj/HypermediaII_Projet/src/java/com/projet/servlet/ControleurFrontal.java</file>
+            <file>file:/C:/Users/defsv/Documents/GitHub/hypermediaII-pj/HypermediaII_Projet/src/java/com/projet/servlet/evaluerLivre.java</file>
+            <file>file:/C:/Users/defsv/Documents/GitHub/hypermediaII-pj/HypermediaII_Projet/web/evaluationLivre.jsp</file>
+            <file>file:/C:/Users/defsv/Documents/GitHub/hypermediaII-pj/HypermediaII_Projet/src/java/com/projet/dao/livreDAO.java</file>
+            <file>file:/C:/Users/defsv/Documents/GitHub/hypermediaII-pj/HypermediaII_Projet/src/java/com/projet/enties/cours.java</file>
+            <file>file:/C:/Users/defsv/Documents/GitHub/hypermediaII-pj/HypermediaII_Projet/src/java/com/projet/servlet/afficherListeLivres.java</file>
+            <file>file:/C:/Users/defsv/Documents/GitHub/hypermediaII-pj/HypermediaII_Projet/src/java/com/projet/enties/livre.java</file>
+            <file>file:/C:/Users/defsv/Documents/GitHub/hypermediaII-pj/HypermediaII_Projet/web/afficherListeLivres.jsp</file>
+            <file>file:/C:/Users/defsv/Documents/GitHub/hypermediaII-pj/HypermediaII_Projet/web/WEB-INF/web.xml</file>
+            <file>file:/C:/Users/defsv/Documents/GitHub/hypermediaII-pj/HypermediaII_Projet/web/consulterLivre.jsp</file>
+            <file>file:/C:/Users/defsv/Documents/GitHub/hypermediaII-pj/HypermediaII_Projet/src/java/com/projet/dao/Dao.java</file>
+            <file>file:/C:/Users/defsv/Documents/GitHub/hypermediaII-pj/HypermediaII_Projet/web/main.jsp</file>
+            <file>file:/C:/Users/defsv/Documents/GitHub/hypermediaII-pj/HypermediaII_Projet/src/java/com/projet/servlet/consulterLivre.java</file>
+        </group>
+    </open-files>
+</project-private>

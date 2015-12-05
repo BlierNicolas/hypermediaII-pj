@@ -1,12 +1,17 @@
 package com.projet.servlet;
 
+import com.projet.dao.livreDAO;
+import com.projet.enties.livre;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @WebServlet(name = "consulter", urlPatterns = {"/consulter"})
 public class consulterLivre extends HttpServlet {
@@ -16,6 +21,10 @@ public class consulterLivre extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             
+            HttpSession session = request.getSession(true);
+            session.setAttribute("ISBN", request.getParameter("ISBN"));
+            RequestDispatcher r = this.getServletContext().getRequestDispatcher("/index.jsp?vue=consulterLivre");
+            r.forward(request, response);
         }
     }
 

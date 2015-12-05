@@ -5,7 +5,7 @@ public class livre {
     private String titre;
     private String edition;
     private int annee;
-    private String motscles;
+    private String motcles;
     private String nomAuteur;
     private String etat;
     private String description;
@@ -13,12 +13,12 @@ public class livre {
     private double note;
     private int nbEvaluations;
     
-    public livre(String ISBN, String titre, String edition, int annee, String motscles, String nomAuteur, String etat, String description, int nbPages, double note, int nbEvaluations) {
+    public livre(String ISBN, String titre, String edition, int annee, String motcles, String nomAuteur, String etat, String description, int nbPages, double note, int nbEvaluations) {
         this.ISBN = ISBN;
         this.titre = titre;
         this.edition = edition;
         this.annee = annee;
-        this.motscles = motscles;
+        this.motcles = motcles;
         this.nomAuteur = nomAuteur;
         this.etat = etat;
         this.description = description;
@@ -51,11 +51,11 @@ public class livre {
     public int getAnnee() {
         return annee;
     }
-    public void setMotsCles(String motscles) {
-        this.motscles = motscles;
+    public void setMotCles(String motcles) {
+        this.motcles = motcles;
     }
     public String getMotCles() {
-        return motscles;
+        return motcles;
     }
     public void setNomAuteur(String nomAuteur) {
         this.nomAuteur = nomAuteur;

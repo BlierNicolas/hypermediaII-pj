@@ -24,8 +24,8 @@
             </TR>
                 <% for (int i=0; i<listeLivre.size(); i++) { %>
                 <TR>
-                    <TD>
-                        <%= listeLivre.get(i).getISBN()%>
+                    <TD>    
+                        <a href="controleurFrontal?action=consulterLivre&ISBN=<%= listeLivre.get(i).getISBN()%>"><%= listeLivre.get(i).getISBN()%></a>
                     </TD>
                     <TD>
                         <%= listeLivre.get(i).getTitre()%>
