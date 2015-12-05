@@ -3,7 +3,7 @@
 <%@page import="java.util.List"%>
 <%@page import="com.projet.servlet.Connexion"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ page import="java.sql.*" %>
+<%@page import="java.sql.*" %>
 <%
     livreDAO unlivreDAO = new livreDAO(Connexion.getInstance());
     List<livre> listeLivre = unlivreDAO.findAll();
@@ -34,10 +34,10 @@
                         <%= listeLivre.get(i).getNbEvaluations()%>
                     </TD>
                     <TD>
-                        <%= listeLivre.get(i).getNote()%> 
+                        <%= listeLivre.get(i).getNote()%>
                     </TD>
                     <TD>
-                        Evaluer 
+                        <a href="controleurFrontal?action=evaluerLivre&ISBN=<%= listeLivre.get(i).getISBN()%>">Évaluer ce livre</a>
                     </TD>
                   
                 </TR>
