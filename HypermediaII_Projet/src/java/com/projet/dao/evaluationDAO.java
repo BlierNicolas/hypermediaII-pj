@@ -138,7 +138,7 @@ public class evaluationDAO extends Dao<evaluation> {
         List<evaluation> liste = new LinkedList<evaluation>();
         try {
             Statement stm = cnx.createStatement();
-            ResultSet r = stm.executeQuery("SELECT * FROM user");
+            ResultSet r = stm.executeQuery("SELECT * FROM evaluation");
             while (r.next()) {
                 evaluation uneEvaluation = new evaluation(r.getString("idProf"), r.getString("idLivre"), r.getInt("note"), r.getString("commentaire"));
                 uneEvaluation.setId(r.getInt("id"));
@@ -152,4 +152,21 @@ public class evaluationDAO extends Dao<evaluation> {
         return liste;
     }
     
+    public List<evaluation> findByISBN(String ISBN) {
+        List<evaluation> liste = new LinkedList<evaluation>();
+        try {
+            Statement stm = cnx.createStatement();
+            ResultSet r = stm.executeQuery("SELECT * FROM evaluation WHERE idLivre = " + ISBN);
+            while (r.next()) {
+                evaluation uneEvaluation = new evaluation(r.getString("idProf"), r.getString("idLivre"), r.getInt("note"), r.getString("commentaire"));
+                uneEvaluation.setId(r.getInt("id"));
+                liste.add(uneEvaluation);
+            }
+            r.close();
+            stm.close();
+        } catch (SQLException exp) {
+            
+        }
+        return liste;
+    }
 }

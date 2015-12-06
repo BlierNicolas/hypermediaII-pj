@@ -154,4 +154,21 @@ public class evaluationcoursDAO extends Dao<evaluationcours> {
         return liste;
     }
     
+    public List<evaluationcours> findNoteDesc() {
+        List<evaluationcours> liste = new LinkedList<evaluationcours>();
+        try {
+            Statement stm = cnx.createStatement();
+            ResultSet r = stm.executeQuery("SELECT * FROM evaluationCours ORDER BY note DESC");
+            while (r.next()) {
+                evaluationcours uneEvaluationcours = new evaluationcours(r.getString("idLivre"), r.getString("idProf"), r.getString("idCours"), r.getInt("note"), r.getString("commentaire"));
+                uneEvaluationcours.setId(r.getInt("id"));
+                liste.add(uneEvaluationcours);
+            }
+            r.close();
+            stm.close();
+        } catch (SQLException exp) {
+            
+        }
+        return liste;
+    }
 }

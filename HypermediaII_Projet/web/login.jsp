@@ -11,10 +11,8 @@
     <!-- LOGIN -->
     <form action="controleurFrontal?action=login" method="post">
         <h2>Connectez-vous</h2>
-        <label>Username</label>
-        <input type="text" id="inputEmail" name="username" value="<%=username%>" placeholder="Username" required autofocus>
-        <label>Password</label>
-        <input type="password" id="inputPassword" name="password" placeholder="Password" required>
+        <input type="text" id="inputEmail" name="username" value="<%=username%>" placeholder="Username" required autofocus><br>
+        <input type="password" id="inputPassword" name="password" placeholder="Password" required><br>
         <button type="submit">Connexion</button>  
     </form>
 </div>

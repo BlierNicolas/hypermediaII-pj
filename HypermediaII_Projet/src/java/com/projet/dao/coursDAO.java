@@ -76,6 +76,33 @@ public class coursDAO extends Dao<cours> {
         return null;
     }
 
+    public cours readByNom(String nom) {
+        PreparedStatement stm = null;
+        //Statement stm = null;
+        try {            
+            stm = cnx.prepareStatement("SELECT * FROM cours WHERE nom = ?");
+            stm.setString(1, nom);
+            ResultSet r = stm.executeQuery();
+            if (r.next()) {
+                cours unCours = new cours(r.getString("numero"), r.getString("nom"), r.getInt("duree"));
+                r.close();
+                stm.close();
+                return unCours;
+            }
+        } catch (SQLException exp) {
+			
+        } finally {
+            if (stm != null) {
+                try {
+                    stm.close();
+                } catch (SQLException e) {            
+                    e.printStackTrace();
+                }
+            }
+        }
+        return null;
+    }
+    
     @Override
     public boolean update(cours x) {
         Statement stm = null;

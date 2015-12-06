@@ -1,3 +1,5 @@
+<%@page import="com.projet.enties.evaluation"%>
+<%@page import="com.projet.dao.evaluationDAO"%>
 <%@page import="com.projet.dao.livreDAO"%>
 <%@page import="com.projet.enties.livre"%>
 <%@page import="java.util.List"%>
@@ -39,7 +41,6 @@
                     <TD>
                         <a href="controleurFrontal?action=evaluerLivre&ISBN=<%= listeLivre.get(i).getISBN()%>">Évaluer ce livre</a>
                     </TD>
-                  
                 </TR>
                 <% } %>
         </TABLE>
