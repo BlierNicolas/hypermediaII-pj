@@ -2,6 +2,7 @@ package com.projet.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,7 +15,8 @@ public class consulterListeCours extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            
+            RequestDispatcher r = this.getServletContext().getRequestDispatcher("/index.jsp?vue=consulterListeCours");
+            r.forward(request, response);
         }
     }
 

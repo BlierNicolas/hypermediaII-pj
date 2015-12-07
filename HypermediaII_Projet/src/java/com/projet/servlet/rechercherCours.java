@@ -17,7 +17,7 @@ public class rechercherCours extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             HttpSession session = request.getSession(true);
-            session.setAttribute("name", request.getParameter("name"));
+            session.setAttribute("cours", request.getParameter("cours"));
             RequestDispatcher r = this.getServletContext().getRequestDispatcher("/index.jsp?vue=afficherCours");
             r.forward(request, response);
         }

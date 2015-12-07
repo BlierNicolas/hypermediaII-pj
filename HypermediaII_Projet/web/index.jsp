@@ -15,7 +15,8 @@
     <head>
         <meta charset="utf-8">
         <title>Projet de session</title>
-        <link href="css/style.css" rel="stylesheet">	
+        <link href="css/style.css" rel="stylesheet">
+        <link href="css/consulterLivre.css" rel="stylesheet">
     </head>
     <body>
         <div>

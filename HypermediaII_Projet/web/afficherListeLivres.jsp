@@ -27,7 +27,7 @@
                 <% for (int i=0; i<listeLivre.size(); i++) { %>
                 <TR>
                     <TD>    
-                        <a href="controleurFrontal?action=consulterLivre&ISBN=<%= listeLivre.get(i).getISBN()%>"><%= listeLivre.get(i).getISBN()%></a>
+                        <a href="controleurFrontal?action=afficherLivre&ISBN=<%= listeLivre.get(i).getISBN()%>"><%= listeLivre.get(i).getISBN()%></a>
                     </TD>
                     <TD>
                         <%= listeLivre.get(i).getTitre()%>
@@ -41,6 +41,9 @@
                     <TD>
                         <a href="controleurFrontal?action=evaluerLivre&ISBN=<%= listeLivre.get(i).getISBN()%>">Évaluer ce livre</a>
                     </TD>
+                    <td>
+                        <a href="controleurFrontal?action=consulterLivre&ISBN=<%= listeLivre.get(i).getISBN()%>">Consulter ces evaluations</a>
+                    </td>
                 </TR>
                 <% } %>
         </TABLE>

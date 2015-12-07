@@ -49,7 +49,7 @@
                         <% for (int j=0; j<listeEvaluationCours.size(); j++) {
                             if (listeEvaluationCours.get(j).getIdCours().equals(listeCours.get(i).getNumero())) { %>
                         <ul>
-                            <li><%= listeEvaluationCours.get(j).getIdLivre() %> <a href="controleurFrontal?action=evaluerLivre&ISBN=<%= listeEvaluationCours.get(j).getIdLivre() %>">Évaluer ce livre</a> : <%= listeEvaluationCours.get(i).getNote() %></li>
+                            <li><%= listeEvaluationCours.get(j).getIdLivre() %> <a href="controleurFrontal?action=evaluerLivre&ISBN=<%= listeEvaluationCours.get(j).getIdLivre() %>">Évaluer ce livre</a></li>
                         </ul>
                         <%      }
                             } %>
