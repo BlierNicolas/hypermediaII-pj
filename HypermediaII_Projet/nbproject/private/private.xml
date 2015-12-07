@@ -13,7 +13,7 @@
             <file>file:/C:/Users/defsv/Documents/GitHub/hypermediaII-pj/HypermediaII_Projet/web/afficherListeLivres.jsp</file>
             <file>file:/C:/Users/defsv/Documents/GitHub/hypermediaII-pj/HypermediaII_Projet/web/WEB-INF/web.xml</file>
             <file>file:/C:/Users/defsv/Documents/GitHub/hypermediaII-pj/HypermediaII_Projet/web/consulterLivre.jsp</file>
-            <file>file:/C:/Users/defsv/Documents/GitHub/hypermediaII-pj/HypermediaII_Projet/src/java/com/projet/dao/Dao.java</file>
+            <file>file:/C:/Users/defsv/Documents/GitHub/hypermediaII-pj/HypermediaII_Projet/src/java/com/projet/dao/coursDAO.java</file>
             <file>file:/C:/Users/defsv/Documents/GitHub/hypermediaII-pj/HypermediaII_Projet/web/main.jsp</file>
             <file>file:/C:/Users/defsv/Documents/GitHub/hypermediaII-pj/HypermediaII_Projet/src/java/com/projet/servlet/consulterLivre.java</file>
         </group>
