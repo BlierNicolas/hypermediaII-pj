@@ -30,33 +30,34 @@
                     </option>
                 <% } %>
             </select>
+            <!--<a href="controleurFrontal?action=rechercherCours">Rechercher</a>-->
             <button type="submit">Rechercher</button><br/>
-            <table>
-                <tr>
-                    <th>Numéro</th>
-                    <th>Nom</th>
-                    <th>Livres du cours</th>
-                </tr>
-                <% for (int i=0; i<listeCours.size(); i++) { %>
-                <tr>
-                    <td>
-                        <%= listeCours.get(i).getNumero() %>
-                    </td>
-                    <td>
-                        <%= listeCours.get(i).getNom() %>
-                    </td>
-                    <td>
-                        <% for (int j=0; j<listeEvaluationCours.size(); j++) {
-                            if (listeEvaluationCours.get(j).getIdCours().equals(listeCours.get(i).getNumero())) { %>
-                        <ul>
-                            <li><%= listeEvaluationCours.get(j).getIdLivre() %> <a href="controleurFrontal?action=evaluerLivre&ISBN=<%= listeEvaluationCours.get(j).getIdLivre() %>">Évaluer ce livre</a></li>
-                        </ul>
-                        <%      }
-                            } %>
-                    </td>
-                </tr>
-                <% } %>
-            </table>
         </form>
+    <table>
+        <tr>
+            <th>Numéro</th>
+            <th>Nom</th>
+            <th>Livres du cours</th>
+        </tr>
+        <% for (int i=0; i<listeCours.size(); i++) { %>
+        <tr>
+            <td>
+                <%= listeCours.get(i).getNumero() %>
+            </td>
+            <td>
+                <%= listeCours.get(i).getNom() %>
+            </td>
+            <td>
+                <% for (int j=0; j<listeEvaluationCours.size(); j++) {
+                    if (listeEvaluationCours.get(j).getIdCours().equals(listeCours.get(i).getNumero())) { %>
+                <ul>
+                    <li><%= listeEvaluationCours.get(j).getIdLivre() %> <a href="controleurFrontal?action=evaluerLivre&ISBN=<%= listeEvaluationCours.get(j).getIdLivre() %>">Évaluer ce livre</a></li>
+                </ul>
+                <%      }
+                    } %>
+            </td>
+        </tr>
+        <% } %>
+    </table>
     </body>
 </html>

@@ -1,7 +1,9 @@
 package com.projet.servlet;
 
 import com.projet.dao.evaluationDAO;
+import com.projet.dao.evaluationcoursDAO;
 import com.projet.enties.evaluation;
+import com.projet.enties.evaluationcours;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -22,7 +24,7 @@ public class confirmationEvaluationLivre extends HttpServlet {
             int note = Integer.parseInt(request.getParameter("note"));
             String commentaire = request.getParameter("commentaire");
             String cours = request.getParameter("cours");
-            if ((note < 0) || (note > 10) || (commentaire == null) || (cours == null)) {
+            if ((note < 0) || (note > 10)) {
                 //retourne au formulaire
                 RequestDispatcher r = this.getServletContext().getRequestDispatcher("/index.jsp?vue=evaluationLivre");
                 r.forward(request, response);
@@ -31,6 +33,12 @@ public class confirmationEvaluationLivre extends HttpServlet {
                 evaluationDAO uneEvaluationDAO = new evaluationDAO(Connexion.getInstance());
                 evaluation uneEvaluation = new evaluation((String)session.getAttribute("connection"), (String)session.getAttribute("ISBN"), note, commentaire);
                 uneEvaluationDAO.create(uneEvaluation);
+                RequestDispatcher r = this.getServletContext().getRequestDispatcher("/index.jsp?vue=main");
+                r.forward(request, response);
+            } else {
+                evaluationcoursDAO uneEvaluationcoursDAO = new evaluationcoursDAO(Connexion.getInstance());
+                evaluationcours uneEvaluationcours = new evaluationcours((String)session.getAttribute("connection"), (String)session.getAttribute("ISBN"), cours, note, commentaire);
+                uneEvaluationcoursDAO.create(uneEvaluationcours);
                 RequestDispatcher r = this.getServletContext().getRequestDispatcher("/index.jsp?vue=main");
                 r.forward(request, response);
             }

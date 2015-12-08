@@ -22,7 +22,7 @@
         <a href="index.jsp">Retour</a>
         <h1>Liste des cours</h1>
         <form action="controleurFrontal?action=rechercherCours">
-            <label>Affichage du cours [ <%= session.getAttribute("name") %> ]: </label><br/>
+            <label>Affichage du cours [ <%= session.getAttribute("cours") %> ]: </label><br/>
             <table>
                 <tr>
                     <td>Numéro : </td>
