@@ -17,7 +17,8 @@
     <body>
         <a href="index.jsp">Retour</a>
         <h1>Evaluer livre [ <%= (String)session.getAttribute("ISBN") %> ]</h1>
-        <form  action="controleurFrontal?action=confirmationEvaluationLivre" method="post">
+        <form  action="controleurFrontal" method="post">
+            <input type="hidden" name="action" value="confirmationEvaluationLivre">
             <label>Note : </label>
             <input type="text" name="note"><br>
             <label>Commentaire : </label><br>
