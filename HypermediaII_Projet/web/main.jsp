@@ -9,7 +9,8 @@
         <a href="controleurFrontal?action=logout">Se déconnecter</a>
     </div>
     <div>
-        <a href="controleurFrontal?action=consulterListeCours">Consulter les cours</a>
+        <a href="controleurFrontal?action=consulterListeCours">Consulter les cours</a> </br>
+        <a href="controleurFrontal?action=consulterLivre">Consulter les livres</a>
         <jsp:include page="afficherListeLivres.jsp" />
     </div>
 </div>

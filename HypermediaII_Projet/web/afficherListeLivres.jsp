@@ -23,6 +23,7 @@
                 <TH>Nombre d'evaluation</TH>
                 <TH>Moyenne</TH>
                 <TH>Evaluation</TH>
+                <TH>Consulter</TH>
             </TR>
                 <% for (int i=0; i<listeLivre.size(); i++) { %>
                 <TR>
