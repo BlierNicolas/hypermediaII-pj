@@ -20,8 +20,8 @@ public class consulterLivre extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            HttpSession session = request.getSession(true);
-            session.setAttribute("ISBN", request.getParameter("ISBN"));
+            //HttpSession session = request.getSession(true);
+            //session.setAttribute("ISBN", request.getParameter("ISBN"));
             RequestDispatcher r = this.getServletContext().getRequestDispatcher("/index.jsp?vue=consulterLivre");
             r.forward(request, response);
         }

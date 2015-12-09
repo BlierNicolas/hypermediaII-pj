@@ -153,4 +153,74 @@ public class livreDAO extends Dao<livre> {
         }
         return liste;
     }
+    
+    
+     public List<livre> findByISBN(String ISBN) {
+        List<livre> liste = new LinkedList<livre>();
+        try {
+            Statement stm = cnx.createStatement();
+            ResultSet r = stm.executeQuery("SELECT * FROM livre where ISBN like '%"+ ISBN +"%'");
+            while (r.next()) {
+                livre unLivre = new livre(r.getString("ISBN"), r.getString("Titre"), r.getString("Edition"), r.getInt("Annee"), r.getString("MotsCles"), r.getString("NomAuteur"), r.getString("etat"), r.getString("Description"), r.getInt("NbPages"), r.getDouble("note"), r.getInt("nbEvaluations"));
+                liste.add(unLivre);
+            }
+            r.close();
+            stm.close();
+        } catch (SQLException exp) {
+            
+        }
+        return liste;
+    }
+    
+     public List<livre> findByTitre(String titre) {
+        List<livre> liste = new LinkedList<livre>();
+        try {
+            Statement stm = cnx.createStatement();
+            ResultSet r = stm.executeQuery("SELECT * FROM livre where Titre like '%"+ titre +"%'");
+            while (r.next()) {
+                livre unLivre = new livre(r.getString("ISBN"), r.getString("Titre"), r.getString("Edition"), r.getInt("Annee"), r.getString("MotsCles"), r.getString("NomAuteur"), r.getString("etat"), r.getString("Description"), r.getInt("NbPages"), r.getDouble("note"), r.getInt("nbEvaluations"));
+                liste.add(unLivre);
+            }
+            r.close();
+            stm.close();
+        } catch (SQLException exp) {
+            
+        }
+        return liste;
+    }
+     
+     public List<livre> findByDesc(String Desc) {
+        List<livre> liste = new LinkedList<livre>();
+        try {
+            Statement stm = cnx.createStatement();
+            ResultSet r = stm.executeQuery("SELECT * FROM livre where Description like '%"+ Desc +"%'");
+            while (r.next()) {
+                livre unLivre = new livre(r.getString("ISBN"), r.getString("Titre"), r.getString("Edition"), r.getInt("Annee"), r.getString("MotsCles"), r.getString("NomAuteur"), r.getString("etat"), r.getString("Description"), r.getInt("NbPages"), r.getDouble("note"), r.getInt("nbEvaluations"));
+                liste.add(unLivre);
+            }
+            r.close();
+            stm.close();
+        } catch (SQLException exp) {
+            
+        }
+        return liste;
+    }
+     
+      public List<livre> findByMotsCles(String MotsCles) {
+        List<livre> liste = new LinkedList<livre>();
+        try {
+            Statement stm = cnx.createStatement();
+            ResultSet r = stm.executeQuery("SELECT * FROM livre where MotsCles like '%"+ MotsCles +"%'");
+            while (r.next()) {
+                livre unLivre = new livre(r.getString("ISBN"), r.getString("Titre"), r.getString("Edition"), r.getInt("Annee"), r.getString("MotsCles"), r.getString("NomAuteur"), r.getString("etat"), r.getString("Description"), r.getInt("NbPages"), r.getDouble("note"), r.getInt("nbEvaluations"));
+                liste.add(unLivre);
+            }
+            r.close();
+            stm.close();
+        } catch (SQLException exp) {
+            
+        }
+        return liste;
+    }
+   
 }

@@ -1,7 +1,10 @@
 package com.projet.servlet;
 
+import com.projet.dao.livreDAO;
+import com.projet.enties.livre;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -19,6 +22,29 @@ public class rechercherLivre extends HttpServlet {
         {
             HttpSession session = request.getSession(true);
             session.setAttribute("Element", request.getParameter("Element"));
+            String Element = request.getParameter("Element");
+            String Recherche = request.getParameter("Recherche");
+            if(Element.equals("ISBN"))
+            {
+                livreDAO unLivreDAO = new livreDAO(Connexion.getInstance());
+                List<livre> listeLivre = unLivreDAO.findByISBN(Recherche);
+                session.setAttribute("listeLivre", listeLivre);
+            }else if(Element.equals("Titre"))
+            {
+                livreDAO unLivreDAO = new livreDAO(Connexion.getInstance());
+                List<livre> listeLivre = unLivreDAO.findByTitre(Recherche);
+                session.setAttribute("listeLivre", listeLivre);
+            }else if(Element.equals("Description"))
+            {
+                livreDAO unLivreDAO = new livreDAO(Connexion.getInstance());
+                List<livre> listeLivre = unLivreDAO.findByDesc(Recherche);
+                session.setAttribute("listeLivre", listeLivre);
+            }else if(Element.equals("Mot-cles"))
+            {
+                livreDAO unLivreDAO = new livreDAO(Connexion.getInstance());
+                List<livre> listeLivre = unLivreDAO.findByMotsCles(Recherche);
+                session.setAttribute("listeLivre", listeLivre);
+            }
             RequestDispatcher r = this.getServletContext().getRequestDispatcher("/index.jsp?vue=consulterLivre");
             r.forward(request, response);
         }
