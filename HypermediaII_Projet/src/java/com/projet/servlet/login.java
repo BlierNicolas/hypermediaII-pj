@@ -1,9 +1,16 @@
 package com.projet.servlet;
 
+import com.projet.dao.evaluationDAO;
+import com.projet.dao.evaluationcoursDAO;
+import com.projet.dao.livreDAO;
 import com.projet.dao.userDAO;
+import com.projet.enties.evaluation;
+import com.projet.enties.evaluationcours;
+import com.projet.enties.livre;
 import com.projet.enties.user;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
@@ -30,10 +37,7 @@ public class login extends HttpServlet {
             
             Connexion.setUrl(request.getServletContext().getInitParameter("databaseURL"));
             userDAO unUserDAO = new userDAO(Connexion.getInstance());
-            if( unUserDAO == null )
-                out.println("Un usrDAO est null");
             user unUser = unUserDAO.read(u.trim());
-            out.println("Vous êtes dans la servlet login");
             if (unUser==null) {
                 //Utilisateur inexistant
                 RequestDispatcher r = this.getServletContext().getRequestDispatcher("/index.jsp?vue=login");
@@ -47,6 +51,34 @@ public class login extends HttpServlet {
                 //connexion OK
                 HttpSession session = request.getSession(true);
                 session.setAttribute("connected", unUser.getUsername());
+                
+                livreDAO unLivreDAO = new livreDAO(Connexion.getInstance());
+                List<livre> uneListeLivre = unLivreDAO.findAll();
+                evaluationDAO uneEvaluationDAO = new evaluationDAO(Connexion.getInstance());
+                List<evaluation> uneListeEvaluation = uneEvaluationDAO.findAll();
+                evaluationcoursDAO uneEvaluationcoursDAO = new evaluationcoursDAO(Connexion.getInstance());
+                List<evaluationcours> uneListeEvaluationcours = uneEvaluationcoursDAO.findAll();
+                for (int i=0; i<uneListeLivre.size(); i++) {
+                    double total = 0;
+                    uneListeLivre.get(i).setNbEvaluations(0);
+                    for (int j=0; j<uneListeEvaluation.size(); j++) {
+                        if (uneListeEvaluation.get(j).getIdLivre().equals(uneListeLivre.get(i).getISBN())) {
+                            uneListeLivre.get(i).setNbEvaluations(uneListeLivre.get(i).getNbEvaluations()+1);
+                            total = total + uneListeEvaluation.get(j).getNote();
+                            uneListeLivre.get(i).setNote(total/uneListeLivre.get(i).getNbEvaluations());
+                            unLivreDAO.update(uneListeLivre.get(i));
+                        }
+                    }
+                    for (int j=0; j<uneListeEvaluationcours.size(); j++) {
+                        if (uneListeEvaluationcours.get(j).getIdLivre().equals(uneListeLivre.get(i).getISBN())) {
+                            uneListeLivre.get(i).setNbEvaluations(uneListeLivre.get(i).getNbEvaluations()+1);
+                            total = total + uneListeEvaluationcours.get(j).getNote();
+                            uneListeLivre.get(i).setNote(total/uneListeLivre.get(i).getNbEvaluations());
+                            unLivreDAO.update(uneListeLivre.get(i));
+                        }
+                    }
+                }
+                
                 request.setAttribute("vue", "main");
                 RequestDispatcher r = this.getServletContext().getRequestDispatcher("/index.jsp?vue=main");
                 r.forward(request, response);

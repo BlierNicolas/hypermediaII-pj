@@ -19,21 +19,31 @@
         <h1>Evaluer livre [ <%= (String)session.getAttribute("ISBN") %> ]</h1>
         <form  action="controleurFrontal" method="post">
             <input type="hidden" name="action" value="confirmationEvaluationLivre">
-            <label>Note : </label>
-            <input type="text" name="note"><br>
-            <label>Commentaire : </label><br>
-            <input type="text" name="commentaire"><br>
-            <label>Nom du cours: </label>
-            <select name="cours">
-                <option selected="selected">
-                    Général
-                </option>
-                <% for (int i=0; i<listeCours.size()-1 ; i++) { %>
-                    <option>
-                        <%= listeCours.get(i).getNom() %>
-                    </option>
-                <% } %>
-            </select>
+            <table>
+                <tr>
+                    <td><label>Note : </label></td>
+                    <td><input type="number" min="0" max="10" name="note"></td>
+                </tr>
+                <tr>
+                    <td><label>Commentaire : </label></td>
+                    <td><textarea rows="4" name="commentaire"></textarea></td>
+                </tr>
+                <tr>
+                    <td><label>Nom du cours: </label></td>
+                    <td>
+                        <select name="cours">
+                            <option selected="selected">
+                                Général
+                            </option>
+                            <% for (int i=0; i<listeCours.size()-1 ; i++) { %>
+                                <option>
+                                    <%= listeCours.get(i).getNom() %>
+                                </option>
+                            <% } %>
+                        </select>
+                    </td>
+                </tr>
+            </table>
             <button type="submit">Envoyer</button>
         </form>
     </body>

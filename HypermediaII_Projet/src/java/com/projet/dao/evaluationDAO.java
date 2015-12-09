@@ -19,15 +19,10 @@ public class evaluationDAO extends Dao<evaluation> {
     public boolean create(evaluation x) {
         PreparedStatement stm = null;
         try {
-            stm = cnx.prepareStatement("INSERT INTO evaluation (`idProf`, `idLivre`, `note`, `commentaire`) VALUES (?,?,?,?)");
-            stm.setString(1,x.getIdProf());
-            stm.setString(2,x.getIdLivre());
-            stm.setDouble(3,x.getNote());
-            stm.setString(4,x.getCommentaire());
-            
+            stm = cnx.prepareStatement("INSERT INTO evaluation (`idProf`, `idLivre`, `note`, `commentaire`) "
+                    + "VALUES ('" + x.getIdProf() + "', '" + x.getIdLivre() + "', " + x.getNote() + ", '" + x.getCommentaire() + "')");
             if (stm.executeUpdate() > 0) {
-                stm = cnx.prepareStatement("SELECT id FROM evaluation WHERE id = ?");
-                stm.setInt(1,x.getId());
+                stm = cnx.prepareStatement("SELECT id FROM evaluation WHERE idLivre = '" + x.getIdLivre() + "' ORDER BY id DESC LIMIT 1");
                 ResultSet r = stm.executeQuery();
                 if (r.next()) {
                     x.setId(r.getInt("id"));
@@ -54,7 +49,7 @@ public class evaluationDAO extends Dao<evaluation> {
         PreparedStatement stm = null;
         //Statement stm = null;
         try {            
-            stm = cnx.prepareStatement("SELECT * FROM evaluation WHERE id = ?");
+            stm = cnx.prepareStatement("SELECT * FROM evaluation WHERE id = " + id);
             stm.setString(1, id);
             ResultSet r = stm.executeQuery();
             if (r.next()) {
@@ -88,7 +83,7 @@ public class evaluationDAO extends Dao<evaluation> {
                             "', idLivre = '" + x.getIdLivre() +
                             "', note = '" + x.getNote() +
                             "', commentaire = '" + x.getCommentaire() +
-                            " WHERE id = " + x.getId() + "";
+                            "' WHERE id = " + x.getId() + "";
             stm = cnx.createStatement();
             int n = stm.executeUpdate(req);
             if (n > 0) {

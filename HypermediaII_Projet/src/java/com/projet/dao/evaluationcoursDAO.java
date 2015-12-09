@@ -19,16 +19,11 @@ public class evaluationcoursDAO extends Dao<evaluationcours> {
     public boolean create(evaluationcours x) {
         PreparedStatement stm = null;
         try {
-            stm = cnx.prepareStatement("INSERT INTO evaluationcours (`idLivre`, `idProf`, `idCours`, `note`, `commentaire`) VALUES (?,?,?,?,?)");
-            stm.setString(1,x.getIdLivre());
-            stm.setString(2,x.getIdProf());
-            stm.setString(3,x.getIdCours());
-            stm.setDouble(4,x.getNote());
-            stm.setString(5,x.getCommentaire());
+            stm = cnx.prepareStatement("INSERT INTO evaluationcours (`idLivre`, `idProf`, `idCours`, `note`, `commentaire`) "
+                    + "VALUES ('" + x.getIdLivre() + "', '" + x.getIdProf() + "', '" + x.getIdCours() + "', " + x.getNote() + ", '" + x.getCommentaire() + "')");
             
             if (stm.executeUpdate() > 0) {
-                stm = cnx.prepareStatement("SELECT id FROM evaluationcours WHERE id = ?");
-                stm.setInt(1,x.getId());
+                stm = cnx.prepareStatement("SELECT id FROM evaluationcours WHERE idLivre = '" + x.getIdLivre() + "' ORDER BY id DESC LIMIT 1");
                 ResultSet r = stm.executeQuery();
                 if (r.next()) {
                     x.setId(r.getInt("id"));

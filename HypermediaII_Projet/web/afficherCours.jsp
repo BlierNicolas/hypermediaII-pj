@@ -40,12 +40,10 @@
                     <td>Évaluations : </td>
                     <td>
                         <% for (int i=0; i<listeCours.size(); i++) { %>
-                            <%= listeCours.get(i).getNumero() %>
-                            <%= listeCours.get(i).getNom() %>
                             <% for (int j=0; j<listeEvaluationCours.size(); j++) {
                                 if (listeEvaluationCours.get(j).getIdCours().equals(listeCours.get(i).getNumero())) { %>
                                 <ul>
-                                    <li><%= listeEvaluationCours.get(j).getIdLivre() %> <a href="controleurFrontal?action=evaluerLivre&ISBN">Évaluer ce livre</a> : <%= listeEvaluationCours.get(i).getNote() %></li>
+                                    <li><%= listeEvaluationCours.get(j).getIdLivre() %> <a href="controleurFrontal?action=evaluerLivre&ISBN">Évaluer ce livre</a> Note : <%= listeEvaluationCours.get(i).getNote() %> / 10</li>
                                 </ul>
                         <%      }
                                 } %>

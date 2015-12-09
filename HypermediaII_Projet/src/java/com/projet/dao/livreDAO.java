@@ -33,7 +33,7 @@ public class livreDAO extends Dao<livre> {
             stm.setInt(11, x.getNbEvaluations());
             
             if (stm.executeUpdate() > 0) {
-                stm = cnx.prepareStatement("SELECT ISBN FROM llivre WHERE ISBN = ?");
+                stm = cnx.prepareStatement("SELECT ISBN FROM livre WHERE ISBN = ?");
                 stm.setString(1,x.getISBN());
                 ResultSet r = stm.executeQuery();
                 if (r.next()) {
@@ -88,19 +88,10 @@ public class livreDAO extends Dao<livre> {
     public boolean update(livre x) {
         Statement stm = null;
         try {
-            stm = cnx.prepareStatement("UPDATE livre SET livre WHERE ISBN = ?");
-            String req =    "UPDATE livre SET ISBN = '" + x.getISBN() + 
-                            "', Titre = '" + x.getTitre() + 
-                            "', Edition = '" + x.getEdition() +
-                            "', Annee = '" + x.getAnnee() +
-                            "', MotCles = '" + x.getMotCles() +
-                            "', NomAuteur = '" + x.getNomAuteur() +
-                            "', etat = '" + x.getEtat() +
-                            "', Description = '" + x.getDescription() +
-                            "', NbPages = '" + x.getNbPages() +
-                            "', note = '" + x.getNote() +
-                            "', nbEvaluations = '" + x.getNbEvaluations() +
-                            " WHERE ISBN = " + x.getISBN() + "";
+            stm = cnx.prepareStatement("UPDATE livre SET livre WHERE ISBN = " + x.getISBN());
+            String req =    "UPDATE livre SET note = " + x.getNote() +
+                            ", nbEvaluations = " + x.getNbEvaluations() +
+                            " WHERE ISBN = '" + x.getISBN() + "'";
             stm = cnx.createStatement();
             int n = stm.executeUpdate(req);
             if (n > 0) {

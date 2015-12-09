@@ -11,7 +11,7 @@
         <param-value>jdbc:mysql://localhost/livre?user=root&amp;password=root</param-value>
     </context-param>
     <servlet>
-        <servlet-name>controleur</servlet-name>
+        <servlet-name>controleurFrontal</servlet-name>
         <servlet-class>com.projet.servlet.ControleurFrontal</servlet-class>
     </servlet>
     <servlet>
@@ -55,7 +55,7 @@
         <servlet-class>com.projet.servlet.rechercherLivre</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>controleur</servlet-name>
+        <servlet-name>controleurFrontal</servlet-name>
         <url-pattern>/controleurFrontal</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
@@ -83,10 +83,6 @@
         <url-pattern>/afficherListeLivres</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>confirmationEvaluationLivre</servlet-name>
-        <url-pattern>/evaluerLivreCours</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>consulterListeCours</servlet-name>
         <url-pattern>/consulterListeCours</url-pattern>
     </servlet-mapping>
@@ -97,6 +93,10 @@
     <servlet-mapping>
         <servlet-name>rechercherLivre</servlet-name>
         <url-pattern>/rechercherLivre</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>confirmationEvaluationLivre</servlet-name>
+        <url-pattern>/confirmationEvaluationLivre</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
