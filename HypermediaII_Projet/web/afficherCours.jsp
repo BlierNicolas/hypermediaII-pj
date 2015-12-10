@@ -8,7 +8,7 @@
 <%
     coursDAO unCoursDAO = new coursDAO(Connexion.getInstance());
     List<cours> listeCours = unCoursDAO.findAll();
-    cours unCours = unCoursDAO.readByNom((String)session.getAttribute("cours"));
+    cours unCours = unCoursDAO.read((String)session.getAttribute("cours"));
     evaluationcoursDAO uneEvaluationcoursDAO = new evaluationcoursDAO(Connexion.getInstance());
     List<evaluationcours> listeEvaluationCours = uneEvaluationcoursDAO.findNoteDesc();
 %>

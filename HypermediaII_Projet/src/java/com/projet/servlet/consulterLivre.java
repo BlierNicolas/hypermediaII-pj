@@ -13,15 +13,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebServlet(name = "consulter", urlPatterns = {"/consulter"})
 public class consulterLivre extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            //HttpSession session = request.getSession(true);
-            //session.setAttribute("ISBN", request.getParameter("ISBN"));
             RequestDispatcher r = this.getServletContext().getRequestDispatcher("/index.jsp?vue=consulterLivre");
             r.forward(request, response);
         }

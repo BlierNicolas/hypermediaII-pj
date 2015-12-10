@@ -18,8 +18,9 @@
     <body>
         <h1>Recherche</h1>
          <a href="index.jsp">Retour</a>
-          <form action="controleurFrontal?action=rechercherLivre">
-            <p>
+          <form action="controleurFrontal">
+              <input type="hidden" name="action" value="rechercherLivre">
+              <p>
                 <input type = "text" name = "Recherche">
                 <select name="Element">
                     <option>ISBN</option>
@@ -27,43 +28,44 @@
                     <option>Description</option>
                     <option>Mot-cles</option>  
                 </select>
-            </p>
-            <button type="submit">Rechercher</button><br/>
-          </form>>
+                <button type="submit">Rechercher</button><br/>
+              </p>
+          </form>
           
           <TABLE>
-    <TR>
-        <TH>ISBN</TH>
-        <TH>Titre</TH>
-        <TH>Description</TH>
-        <TH>Mot-Cle</TH>
-        <TH>Evaluation</TH>
-        <TH>Afficher</TH>
-    </TR>
-    <% if ((listelivre.size() != 0) && (listelivre != null))
-        {
-            for (int i=0; i<listelivre.size(); i++) { %>
-                <TR>
-                    <TD>    
-                        <a href="controleurFrontal?action=afficherLivre&ISBN=<%= listelivre.get(i).getISBN()%>"><%= listelivre.get(i).getISBN()%></a>
-                    </TD>
-                    <TD>
-                        <%= listelivre.get(i).getTitre()%>
-                    </TD>
-                    <TD>
-                        <%= listelivre.get(i).getDescription() %>
-                    </TD>
-                    <TD>
-                        <%= listelivre.get(i).getMotCles() %>
-                    </TD>
-                    <TD>
-                        <a href="controleurFrontal?action=evaluerLivre&ISBN=<%= listelivre.get(i).getISBN()%>">Évaluer ce livre</a>
-                    </TD>
-                    <td>
-                        <a href="controleurFrontal?action=afficherLivre&ISBN=<%= listelivre.get(i).getISBN()%>">Affciher le livre</a>
-                        </td>
-                    </TR>
-        <% }
+            <TR>
+                <TH>ISBN</TH>
+                <TH>Titre</TH>
+                <TH>Description</TH>
+                <TH>Mot-Cle</TH>
+                <TH>Evaluation</TH>
+                <TH>Afficher</TH>
+            </TR>
+    <%  if (listelivre != null) {
+            if (listelivre.size() != 0) {
+                for (int i=0; i<listelivre.size(); i++) { %>
+                    <TR>
+                        <TD>    
+                            <a href="controleurFrontal?action=afficherLivre&ISBN=<%= listelivre.get(i).getISBN()%>"><%= listelivre.get(i).getISBN()%></a>
+                        </TD>
+                        <TD>
+                            <%= listelivre.get(i).getTitre()%>
+                        </TD>
+                        <TD>
+                            <%= listelivre.get(i).getDescription() %>
+                        </TD>
+                        <TD>
+                            <%= listelivre.get(i).getMotCles() %>
+                        </TD>
+                        <TD>
+                            <a href="controleurFrontal?action=evaluerLivre&ISBN=<%= listelivre.get(i).getISBN()%>">Évaluer ce livre</a>
+                        </TD>
+                        <td>
+                            <a href="controleurFrontal?action=afficherLivre&ISBN=<%= listelivre.get(i).getISBN()%>">Affciher le livre</a>
+                            </td>
+                        </TR>
+            <%  }
+            } 
         } %>
 </TABLE>
     </body>

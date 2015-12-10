@@ -19,7 +19,7 @@
     <select name="cours">
         <% for (int i=0; i<listeCours.size()-1 ; i++) { %>
             <option>
-                <%= listeCours.get(i).getNom() %>
+                <%= listeCours.get(i).getNumero() %>
             </option>
         <% } %>
     </select>

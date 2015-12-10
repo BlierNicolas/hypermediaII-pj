@@ -24,22 +24,22 @@ public class rechercherLivre extends HttpServlet {
             session.setAttribute("Element", request.getParameter("Element"));
             String Element = request.getParameter("Element");
             String Recherche = request.getParameter("Recherche");
-            if(Element.equals("ISBN"))
+            if (Element.equals("ISBN"))
             {
                 livreDAO unLivreDAO = new livreDAO(Connexion.getInstance());
                 List<livre> listeLivre = unLivreDAO.findByISBN(Recherche);
                 session.setAttribute("listeLivre", listeLivre);
-            }else if(Element.equals("Titre"))
+            } else if(Element.equals("Titre"))
             {
                 livreDAO unLivreDAO = new livreDAO(Connexion.getInstance());
                 List<livre> listeLivre = unLivreDAO.findByTitre(Recherche);
                 session.setAttribute("listeLivre", listeLivre);
-            }else if(Element.equals("Description"))
+            } else if(Element.equals("Description"))
             {
                 livreDAO unLivreDAO = new livreDAO(Connexion.getInstance());
                 List<livre> listeLivre = unLivreDAO.findByDesc(Recherche);
                 session.setAttribute("listeLivre", listeLivre);
-            }else if(Element.equals("Mot-cles"))
+            } else if(Element.equals("Mot-cles"))
             {
                 livreDAO unLivreDAO = new livreDAO(Connexion.getInstance());
                 List<livre> listeLivre = unLivreDAO.findByMotsCles(Recherche);
